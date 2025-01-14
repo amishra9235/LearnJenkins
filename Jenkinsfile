@@ -11,22 +11,22 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Build the Maven project
-                sh 'mvn clean install'
+                // Build the Maven project on Windows
+                bat 'mvn clean install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Execute test cases
-                sh 'mvn test'
+                // Execute test cases on Windows
+                bat 'mvn test'
             }
         }
 
         stage('Publish Test Results') {
             steps {
                 // Archive JUnit test results
-                junit 'target/surefire-reports/*.xml'
+                junit 'target\\surefire-reports\\*.xml'
             }
         }
     }
